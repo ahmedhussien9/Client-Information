@@ -1,0 +1,166 @@
+
+<div class="addUser">
+  <button class="btn btn-primary add__Contact"
+          data-toggle="modal" 
+          data-target=".bd-example-modal-lg">
+        Add Contact
+  </button>
+  <div class="modal fade bd-example-modal-lg"  role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+          <h5 class="clientInfotitle">Client Information</h5>
+          <form (ngSubmit)="onSubmit()" [formGroup]="contact">
+             <div class="row">
+               <div class="col-md-6">
+                 <!-- UserName Form Group -->
+                <div class="form-group">
+                  <label for="username" class="clientInfoHeader">Name</label>
+                  <input type="text"
+                  formControlName="name"
+                   class="form-control"
+                  name="name" id="username" 
+                  [(ngModel)]="user.name" 
+                  placeholder="Enter you name" 
+                  >
+                  <p *ngIf="!contact.get('name').valid && contact.get('name').touched"
+                  class="help-block">
+                    Please enter a valid username</p>
+                </div>
+                <!-- End of userName Form Group -->
+                <div class="form-group">
+                  <label for="email" class="clientInfoHeader" >Email</label>
+                  <input 
+                  class="form-control"
+                  formControlName="email"
+                   name="email" id="email"         
+                  [(ngModel)]="user.email" 
+                    placeholder="Enter Email"> 
+                  <p *ngIf="!contact.get('email').valid && contact.get('email').touched"
+                  class="help-block">
+                    Please enter a valid Email test@test.com</p>
+                  </div>                 
+                <div class="form-group">
+                    <label for="city" class="clientInfoHeader">City</label>
+                    <input 
+                    type="text" 
+                    class="form-control"
+                     name="city"
+                     formControlName="city"
+                     [(ngModel)]="user.address.city"
+                      placeholder="Enter your city" >  
+                      <p *ngIf="!contact.get('city').valid && contact.get('city').touched"
+                      class="help-block">
+                        Please enter a Valid City</p>                                    
+                  </div>
+                  <div class="form-group">
+                    <label for="street" class="clientInfoHeader">Street</label>
+                    <input 
+                    type="text" 
+                    class="form-control"
+                     name="street"
+                      [(ngModel)]="user.address.street"
+                      formControlName="street"
+                       placeholder="Enter your street"
+                      > 
+                       <p *ngIf="!contact.get('street').valid && contact.get('street').touched"
+                       class="help-block">
+                         Please enter a valid Street Address</p>                                      
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                      <label for="suite" class="clientInfoHeader">Suite</label>
+                      <input
+                       type="text" 
+                       class="form-control" 
+                       name="suite"
+                       formControlName="suite"
+                        [(ngModel)]="user.address.suite"
+                         placeholder="Enter your Suite" 
+                         >                              
+                         <p *ngIf="!contact.get('suite').valid && contact.get('suite').touched"
+                         class="help-block">
+                           Please enter a valid Address suite</p>          
+                    </div>
+                  <div class="form-group">
+                      <label for="phone" class="clientInfoHeader">phone</label>
+                    <input 
+                    type="number" 
+                    class="form-control" 
+                    name="phone" 
+                    [(ngModel)]="user.phone" 
+                    formControlName="phone"
+                     >  
+                     <p *ngIf="!contact.get('phone').valid && contact.get('phone').touched"
+                     class="help-block">
+                       Please enter a valid phone number +20011220000</p>                                                        
+                   </div>
+             <div class="form-group">
+                <label for="id" class="clientInfoHeader"> Id</label>
+                <input 
+                type="text"
+                 class="form-control" 
+                 name="id" 
+                 formControlName="id"
+                 [(ngModel)]="user.id"  
+                 placeholder="Enter Id"
+                 >
+                 <p *ngIf="!contact.get('id').valid && contact.get('id').touched"
+                 class="help-block">
+                   Please enter a vaild id number </p>   
+                </div>
+              </div>
+            </div>
+               <div class="handle__clientForm">
+                 <button type="submit" value="submit" class="btn handle--user" [disabled]="!contact.valid">Save</button>
+                 <button type="button" class="btn handle--user" data-dismiss="modal">Close</button>
+                 </div>
+              </form>
+        
+              </div>
+         </div>
+      </div>
+     
+<div class=" userList">
+ <div class="table-responsive">     
+  <table class="table table-bordered table-curved ">
+    <thead class="thead">
+      <tr>
+        <th class="userInfo">
+          <label class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input">
+          <span class="custom-control-indicator"></span>
+        </label></th>
+        <th>Title</th>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users " >
+        <td class="userInfo">
+          <label class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+          </label></td>
+        <td class="userInfo"><a class="userName" (click)="showUserDetails(user)">{{ user.name }}</a></td>
+        <td class="userInfo userInfo--Bgcolor">{{ user.id }}</td>
+        <td class="userInfo">{{ user.email }}</td>
+        <td class="userInfo userInfo--Bgcolor"> {{ user.phone }} </td>
+         <td>
+           <ul> 
+           <li>{{user.address.city}}</li>
+           <li>{{ user.address.street }}</li>
+           <li>{{user.address.suite}}</li>
+          </ul>
+         </td>
+      </tr>
+    </tbody>
+  </table>
+</div> 
+</div>
+
+
+

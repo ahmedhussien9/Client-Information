@@ -1,0 +1,26 @@
+<!-- Start user details container -->
+<div class="container userDetails">
+    <h5 class="clientDetailsTitle">Client Details <span class="badge badge-info">{{(displayUsers | async).id}}</span></h5>
+    <div class="user__Info">
+        <p class="user__details">{{(displayUsers | async).name}} </p>
+        <p class="user__details">{{(displayUsers | async).email}} </p>
+     </div>
+     <div class="user__Info">
+        <p class="user__details">{{(displayUsers | async).phone}} </p>
+        <p class="user__details">{{(displayUsers | async).address.street}}</p>   
+    </div>
+    <button class="btn gobackbtn" (click)="goBack()">Go back</button>
+  </div>
+  <!-- Start Album Container-->
+    <div class="albums container">
+    <div class="btn-group albums__group" role="group" aria-label="Basic example" *ngFor="let album of User_Albums">
+         <button type="button" class="btn" (click)="getPhoto(album.id)"> Album {{album.id}} </button> 
+    </div> 
+
+  <div  class="flex-container"> 
+     <div *ngFor="let photo of photoAlbums">
+        <div class="flex"><img [src]="photo.thumbnailUrl"><span>{{photo.id}}</span></div>
+     </div>
+ </div> 
+</div>
+ <!-- End Album Container-->

@@ -1,0 +1,61 @@
+
+@import '~sass/variables';
+@import '~sass/mixins';
+// start user details sass //
+.userDetails {
+    background: #fff;
+    color:#333;
+    .clientDetailsTitle{
+       text-align: center;
+       margin-top: 20px;  
+       font-size: 35px;
+    }
+    .clientId{
+        background-color: #3498db;
+        padding: 10px;
+        border-radius: 50px;
+        font-size: 14px;
+    }
+    .user__Info {
+        margin: 30px 30px;
+        padding: 5px 30px;
+        display: inline-block;
+        .user__details{
+            font-size: 18px;
+            color:#3498db;
+            font-weight: 600;
+        }
+}
+    .gobackbtn {
+        @include buttonCss();
+        color:#f9f9f9;
+    }
+ }
+// End user details sass //
+// Start user details sass //
+ .flex-container {
+        display: flex;
+        flex-flow: row wrap;
+        .flex {
+            background-color: #f1f1f1;
+            width: 200px;
+            margin: 5px ;
+            display: inline-block;
+            text-align: center;
+            line-height: 75px;
+      }
+}
+.albums{
+    background-color: rgb(245, 245, 245);
+    .albums__group {
+        margin: 20px;
+        .btn{
+        @include buttonCss();
+        }
+    }
+}    
+// End user details sass //
+
+
+
+    
