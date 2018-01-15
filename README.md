@@ -16,8 +16,7 @@ check this link if you need to install sass in your node_module : http://bit.ly/
 * BOOSTRAP 4 
 * TypeScript
 * RxJS library
-# Notice
-Check the project online :https://deemalabtask.firebaseapp.com/ 
+
 # Who do I talk to ? 
 Developed by Ahmed Hussien 
 aahmedhussien9@gmail.com
